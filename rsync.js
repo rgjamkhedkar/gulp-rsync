@@ -79,7 +79,7 @@ rsync.prototype = {
 
   execute: function(callback) {
     var command = this.command();
-
+    console.log("Command: " + command);
     var childProcess;
     if (process.platform === 'win32') {
       childProcess = spawn('cmd.exe', ['/s', '/c', '"' + command + '"'], {
