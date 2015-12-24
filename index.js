@@ -86,7 +86,8 @@ module.exports = function(options) {
         'z': options.compress,
         'exclude': options.exclude,
         'include': options.include,
-        'progress': options.progress
+        'progress': options.progress,
+        'delete': options.deleteExisting
       },
       source: sources.map(function(source) {
         return path.relative(cwd, source.path) || '.';
@@ -110,7 +111,7 @@ module.exports = function(options) {
         data.toString().split('\r').forEach(function(chunk) {
           chunk.split('\n').forEach(function(line, j, lines) {
             log('gulp-rsync:', line, (j < lines.length - 1 ? '\n' : ''));
-          });          
+          });
         });
       };
       config.stdoutHandler = handler;
@@ -128,5 +129,5 @@ module.exports = function(options) {
       }
       cb();
     }.bind(this));
-  }); 
+  });
 };
