@@ -6,6 +6,7 @@ var isString = require('lodash.isstring');
 var spawn = require('child_process').spawn;
 
 function rsync(config) {
+  console.log("config: ", config);
   if (!(this instanceof rsync)) {
     return new rsync(config);
   }
